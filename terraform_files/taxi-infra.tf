@@ -100,7 +100,7 @@ resource "aws_security_group" "demo-sg" {
 # IAM ROLE (FIXES AWS ERROR)
 ########################
 resource "aws_iam_role" "ec2_role" {
-  name = "jenkins-ec2-role"
+  name = "jenkins-ec2-role1"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -127,7 +127,7 @@ resource "aws_iam_role_policy_attachment" "ecr_access" {
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "jenkins-instance-profile"
+  name = "jenkins-instance-profile1"
   role = aws_iam_role.ec2_role.name
 }
 
@@ -135,7 +135,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 # S3 BUCKET
 ########################
 resource "aws_s3_bucket" "artifact_bucket" {
-  bucket = "my-war-bucket"
+  bucket = "my-war-bucket2"
 
   tags = {
     Name = "war-artifacts"
